@@ -1,0 +1,4 @@
+import type {Metadata} from 'next';import {DM_Sans,Playfair_Display,DM_Mono} from 'next/font/google';import './globals.css';import {Providers} from './providers'
+const sans=DM_Sans({subsets:['latin'],variable:'--font-geist-sans'});const display=Playfair_Display({subsets:['latin'],variable:'--font-display'});const mono=DM_Mono({subsets:['latin'],weight:['400','500'],variable:'--font-geist-mono'});
+export const metadata:Metadata={title:'G.I Bookshelf — Your Digital Library, Anywhere.',description:'A thoughtfully curated digital library for curious minds. Discover, read, and download books anywhere.'}
+export default function RootLayout({children}:Readonly<{children:React.ReactNode}>){return <html lang="en" className={`${sans.variable} ${display.variable} ${mono.variable}`}><body><Providers>{children}</Providers></body></html>}

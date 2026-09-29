@@ -1,0 +1,26 @@
+import { prisma } from "@/lib/db"
+
+export const CATEGORIES = ["Programming", "Artificial Intelligence", "Cybersecurity", "Technology", "Education", "Science", "Business", "Fiction", "Novel", "Mystery", "Thriller", "Horror", "Romance", "Fantasy", "Poetry", "History", "Biography", "Self-Help", "Travel", "Other"] as const
+export type Book = { id: string; title: string; author: string; description: string; category: string; language: string; cover_url: string; pdf_url: string; page_count: number; file_size: string; tags: string; published: boolean; download_count: number; created_at: Date; updated_at: Date }
+const sample: Book[] = [
+ {id:"python-guide",title:"Python Programming Guide",author:"Mira Patel",description:"A practical path from first script to clean, confident Python. Explore core syntax, useful patterns, and small projects for real understanding.",category:"Programming",language:"English",cover_url:"https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=600&h=800&fit=crop",pdf_url:"",page_count:284,file_size:"4.2 MB",tags:"python,code,beginner",published:true,download_count:1842,created_at:new Date("2026-09-25"),updated_at:new Date()},
+ {id:"javascript-fundamentals",title:"JavaScript Fundamentals",author:"Jonas Reed",description:"A thoughtful introduction to the language of the web: from variables and functions to modern browser applications.",category:"Programming",language:"English",cover_url:"https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=800&fit=crop",pdf_url:"",page_count:216,file_size:"3.8 MB",tags:"javascript,web,frontend",published:true,download_count:1256,created_at:new Date("2026-09-22"),updated_at:new Date()},
+ {id:"intro-ai",title:"Introduction to Artificial Intelligence",author:"Dr. Lena Okafor",description:"A clear, grounded tour of machine learning, neural networks, and the ideas shaping intelligent systems.",category:"Artificial Intelligence",language:"English",cover_url:"https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=800&fit=crop",pdf_url:"",page_count:312,file_size:"5.1 MB",tags:"AI,machine learning,technology",published:true,download_count:2094,created_at:new Date("2026-09-20"),updated_at:new Date()},
+ {id:"cybersecurity-fundamentals",title:"Cybersecurity Fundamentals",author:"Anika Sharma",description:"Understand digital safety from first principles: threats, networks, encryption, and practical defensive habits.",category:"Cybersecurity",language:"English",cover_url:"https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=800&fit=crop",pdf_url:"",page_count:198,file_size:"3.4 MB",tags:"security,networks,privacy",published:true,download_count:932,created_at:new Date("2026-09-18"),updated_at:new Date()},
+ {id:"linux-command-line",title:"Linux Command Line Guide",author:"Malik Thompson",description:"Build fluency at the terminal with approachable examples, useful commands, and hands-on exercises.",category:"Technology",language:"English",cover_url:"https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=600&h=800&fit=crop",pdf_url:"",page_count:176,file_size:"2.9 MB",tags:"linux,terminal,open source",published:true,download_count:786,created_at:new Date("2026-09-15"),updated_at:new Date()},
+ {id:"web-handbook",title:"Web Development Handbook",author:"Sam Rivera",description:"The building blocks of the modern web, explained with clear examples across HTML, CSS, and JavaScript.",category:"Education",language:"English",cover_url:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=800&fit=crop",pdf_url:"",page_count:248,file_size:"4.7 MB",tags:"web,HTML,CSS",published:true,download_count:1577,created_at:new Date("2026-09-10"),updated_at:new Date()},
+ {id:"creative-thinking",title:"The Art of Creative Thinking",author:"Nora Bell",description:"Small prompts and practical frameworks for finding fresh perspectives in work and everyday life.",category:"Business",language:"English",cover_url:"https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&h=800&fit=crop",pdf_url:"",page_count:142,file_size:"2.5 MB",tags:"creativity,ideas,work",published:true,download_count:641,created_at:new Date("2026-09-06"),updated_at:new Date()},
+ {id:"quiet-orbit",title:"A Quiet Orbit",author:"Elias North",description:"A lyrical short novel about a signal from deep space and the people who choose to listen.",category:"Fiction",language:"English",cover_url:"https://images.unsplash.com/photo-1532012197267-da84d127e765?w=600&h=800&fit=crop",pdf_url:"",page_count:229,file_size:"3.6 MB",tags:"fiction,space,novel",published:true,download_count:504,created_at:new Date("2026-09-02"),updated_at:new Date()}
+]
+export async function getBooks(all=false): Promise<Book[]> {
+ try {
+  let rows = await prisma.book.findMany({where:all?undefined:{published:true}, orderBy:{created_at:"desc"}})
+  if(rows.length===0){
+   const count=await prisma.book.count()
+   if(count===0){await prisma.book.createMany({data:sample.map(({id,...b})=>({...b,id}))});rows=await prisma.book.findMany({where:all?undefined:{published:true},orderBy:{created_at:"desc"}})}
+  }
+  if(rows.length) return rows as Book[]
+ } catch {}
+ return all ? sample : sample.filter(b=>b.published)
+}
+export async function getBook(id:string,all=false):Promise<Book|undefined>{const rows=await getBooks(all);return rows.find(b=>b.id===id)}
