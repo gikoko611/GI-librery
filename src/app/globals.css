@@ -4,3 +4,230 @@
 @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:900px){.hero{padding-left:30px;padding-right:30px;min-height:590px}.hero-books{transform:scale(.85);transform-origin:center}.hero h1{font-size:62px}.books-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.detail-layout{gap:40px}.library-controls select{flex:1}.category-list{grid-template-columns:repeat(2,1fr)}.topbar{padding-left:25px;padding-right:25px}}
 @media(max-width:680px){.topbar{height:67px;padding:0 18px}.menu-toggle{display:grid;place-items:center;width:40px;height:40px}.nav{display:none;position:absolute;z-index:10;top:66px;left:0;right:0;padding:14px 20px 19px;background:#11131a;border-bottom:1px solid #ffffff17;flex-direction:column;align-items:stretch;gap:0}.nav-open{display:flex}.nav a{padding:13px 4px;border-bottom:1px solid #ffffff0d}.nav .nav-admin{margin-top:8px;padding:11px}.hero{display:block;min-height:0;padding:64px 21px 72px}.hero h1{font-size:54px;letter-spacing:-1.8px;margin-top:18px}.hero-content>p{font-size:13px;line-height:1.8;max-width:380px}.hero-search{height:53px;margin-top:24px}.hero-actions{gap:13px;flex-wrap:wrap}.btn-primary,.btn-outline{padding:13px 14px;font-size:11px}.hero-books{height:330px;transform:scale(.79);transform-origin:center top;margin:17px 0 -50px}.hero-glass-card{width:360px;height:350px}.b-one{left:59px}.b-two{right:40px}.b-three{left:119px}.hero-bottom{left:21px;right:21px;bottom:16px;font-size:7px;letter-spacing:.7px}.section,.category-strip{padding:52px 20px}.section-heading{align-items:start;gap:12px}.section-heading h2{font-size:30px}.section-heading p{font-size:11px}.text-link{font-size:10px;white-space:nowrap;margin-top:26px}.books-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:19px 12px}.book-cover-wrap{padding:11px}.cover{padding:10px}.cover-brand{font-size:5px}.cover-art{font-size:52px}.cover-title{font-size:12px}.cover-author{font-size:6px}.book-info h3{font-size:12px}.book-info>p{font-size:10px}.book-meta{font-size:8px;gap:8px}.category-strip{padding-top:42px;padding-bottom:44px}.category-list{grid-template-columns:1fr 1fr;gap:8px}.category-pill{padding:12px 9px;gap:8px;font-size:10px}.category-pill>svg{width:13px}.cat-number{font-size:8px}.cat-icon{font-size:13px}.popular-section{padding-top:48px}.cta-band{margin:3px 17px 50px;padding:20px 16px;gap:11px}.cta-star{font-size:22px}.cta-band .section-kicker{font-size:8px}.cta-band h2{font-size:19px}.btn-light{padding:11px 10px;font-size:9px;gap:5px;white-space:nowrap}.footer{padding:20px;grid-template-columns:1fr 1fr;gap:13px}.footer .brand{font-size:12px}.footer>p{text-align:right;font-size:9px}.footer-copy{grid-column:1/-1;text-align:left;font-size:9px}.library-page,.detail-page{padding:42px 19px 65px}.page-intro h1{font-size:39px;letter-spacing:-1.3px}.page-intro>p{font-size:12px}.library-controls{gap:8px;margin-top:24px}.library-search{flex-basis:100%;height:45px}.library-controls select{height:40px;min-width:0;flex:1;font-size:9px;padding:0 8px}.view-toggle{height:39px}.view-toggle button{padding:6px}.results-line{font-size:9px;margin:18px 0 13px}.library-grid{row-gap:23px}.list-view{grid-template-columns:1fr}.list-view .book-card .card-link{display:grid;grid-template-columns:85px 1fr;gap:12px;align-items:center}.list-view .book-cover-wrap{padding:7px}.list-view .book-info{padding:5px 0}.category-cards{grid-template-columns:repeat(2,1fr);gap:10px;margin-top:29px}.category-card{min-height:165px;padding:15px}.category-symbol{font-size:30px;right:15px;top:29px}.category-card h2{font-size:18px;margin-top:48px}.category-count{font-size:9px;margin-top:12px}.detail-page{padding-top:22px}.breadcrumbs{font-size:9px;gap:6px;margin-bottom:20px}.detail-layout{grid-template-columns:110px 1fr;gap:18px;align-items:start}.cover-large{padding:10px 10px}.cover-large:before{left:8px}.cover-large .cover-brand{font-size:4px}.cover-large .cover-art{font-size:43px}.cover-large .cover-title{font-size:10px}.cover-large .cover-author{font-size:5px;margin-top:4px}.cover-large .cover-rule{width:18px;height:1px;margin-top:6px}.detail-content .detail-badge{font-size:8px;padding:5px 8px}.detail-content h1{font-size:25px;letter-spacing:-.4px;margin-top:10px}.detail-author{font-size:10px;margin-top:4px}.detail-description{font-size:10px;line-height:1.65;margin-top:13px}.detail-stats{grid-template-columns:repeat(2,1fr);row-gap:12px;margin-top:14px;padding:12px 0}.detail-stats small{font-size:7px}.detail-stats b{font-size:10px;margin-top:3px}.detail-tags{gap:5px;margin-top:11px}.detail-tags span{font-size:8px;padding:4px 7px}.detail-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}.detail-layout{row-gap:0}.detail-actions .btn-primary,.detail-actions .btn-outline{font-size:9px;padding:11px}.open-note{font-size:8px;margin-top:10px}.reader-top{height:55px;padding:0 11px}.reader-back,.reader-download{font-size:9px;gap:2px}.reader-bookname{font-size:9px;gap:5px;max-width:38%;overflow:hidden;white-space:nowrap}.reader-download{padding:7px;border:0}.reader-download span{display:none}.reader-stage{padding:10px}.pdf-page{width:min(390px,90vw);min-height:min(590px,76vh);padding:30px}.pdf-inner{min-height:430px}.pdf-inner h1{font-size:30px}.pdf-message{font-size:11px}.reader-controls{height:60px;padding:0 10px}.reader-zoom,.reader-pager,.reader-pager button,.reader-pager label{gap:4px}.reader-zoom button,.reader-pager button{padding:6px}.reader-zoom span,.reader-pager label{font-size:9px}.reader-pager input{width:39px;padding:6px}.reader-pager button span{font-size:9px}.reader-help{width:21px;height:21px}.admin-page{padding:18px 16px 55px}.admin-header .brand{font-size:13px}.admin-header .brand-mark{width:30px;height:30px}.admin-header>div{gap:8px}.admin-welcome{display:none}.admin-header .btn-primary{font-size:9px;padding:9px}.admin-welcome-block{padding:29px 0 20px}.admin-welcome-block h1{font-size:33px}.stats-grid{grid-template-columns:repeat(2,1fr);gap:9px}.stat-card{padding:13px}.stat-card>b{font-size:24px}.stat-card>span:first-child{font-size:9px}.admin-panel{padding:15px 12px;margin-top:15px}.panel-head h2{font-size:18px}.admin-row{gap:8px;flex-wrap:wrap}.admin-book-icon{width:29px;height:35px}.admin-book-title b{font-size:10px}.admin-book-title small{font-size:8px}.status-live,.status-draft{font-size:8px;padding:4px 6px}.row-downloads{display:none}.row-edit{font-size:9px}.popular-row{grid-template-columns:26px 1fr auto;gap:5px}.popular-row>span:nth-child(3){display:none}.popular-row strong{font-size:9px}.auth-card{padding:25px 21px}.auth-page>.brand{left:19px;top:17px}.form-grid{grid-template-columns:1fr}.wide-field{grid-column:auto}.book-form{padding:17px}.book-form>.btn-primary{width:100%}}
+
+/* ── G.I AI Librarian ───────────────────────── */
+
+.ai-librarian{
+  margin:28px 0;
+  padding:24px;
+  border:1px solid rgba(20,20,20,.10);
+  border-radius:20px;
+  background:linear-gradient(145deg,#fff,#fafafa);
+  box-shadow:0 8px 30px rgba(0,0,0,.04);
+}
+
+.ai-librarian-head{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  margin-bottom:20px;
+}
+
+.ai-librarian-icon{
+  width:42px;
+  height:42px;
+  flex:0 0 42px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  background:#111;
+  color:#fff;
+}
+
+.ai-librarian-head h2{
+  margin:3px 0 6px;
+  font-size:20px;
+  line-height:1.25;
+}
+
+.ai-librarian-head p{
+  margin:0;
+  max-width:680px;
+  color:#707070;
+  font-size:14px;
+  line-height:1.6;
+}
+
+.ai-librarian-box{
+  border:1px solid rgba(20,20,20,.10);
+  border-radius:16px;
+  background:#fff;
+  padding:14px;
+}
+
+.ai-librarian-box textarea{
+  width:100%;
+  min-height:100px;
+  resize:vertical;
+  border:0;
+  outline:0;
+  background:transparent;
+  font:inherit;
+  font-size:15px;
+  line-height:1.6;
+  color:#171717;
+}
+
+.ai-librarian-box textarea::placeholder{
+  color:#999;
+}
+
+.ai-librarian-actions{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding-top:12px;
+  border-top:1px solid rgba(20,20,20,.07);
+}
+
+.ai-librarian-actions > span{
+  color:#777;
+  font-size:12px;
+}
+
+.ai-librarian-actions .btn-primary{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  white-space:nowrap;
+}
+
+.ai-result{
+  margin-top:14px;
+  padding:16px;
+  border:1px solid rgba(20,20,20,.09);
+  border-radius:14px;
+  background:#fff;
+}
+
+.ai-result-summary{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+}
+
+.ai-result-summary svg{
+  flex:0 0 auto;
+  margin-top:2px;
+}
+
+.ai-result-summary b{
+  display:block;
+  margin-bottom:3px;
+}
+
+.ai-result-summary p{
+  margin:0;
+  color:#707070;
+  font-size:13px;
+  line-height:1.5;
+}
+
+.ai-error{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+}
+
+.ai-error p{
+  margin:4px 0 0;
+  color:#777;
+  font-size:13px;
+  line-height:1.5;
+}
+
+.ai-result-list{
+  display:grid;
+  gap:8px;
+  margin-top:14px;
+}
+
+.ai-result-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:11px 12px;
+  border:1px solid rgba(20,20,20,.07);
+  border-radius:10px;
+}
+
+.ai-result-row b{
+  display:block;
+  font-size:14px;
+}
+
+.ai-result-row small{
+  display:block;
+  margin-top:3px;
+  color:#777;
+  font-size:12px;
+}
+
+.ai-result-row span{
+  flex:0 0 auto;
+  padding:4px 8px;
+  border-radius:999px;
+  background:#f1f1f1;
+  color:#666;
+  font-size:11px;
+  font-weight:600;
+}
+
+.ai-skipped{
+  margin-top:14px;
+  padding-top:12px;
+  border-top:1px solid rgba(20,20,20,.07);
+}
+
+.ai-skipped summary{
+  cursor:pointer;
+  color:#666;
+  font-size:12px;
+}
+
+.ai-skipped > div{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  margin-top:9px;
+  padding:9px 10px;
+  border-radius:9px;
+  background:#f7f7f7;
+}
+
+.ai-skipped small{
+  color:#777;
+}
+
+.spin{
+  animation:gi-ai-spin .9s linear infinite;
+}
+
+@keyframes gi-ai-spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+@media (max-width:640px){
+  .ai-librarian{
+    padding:17px;
+    border-radius:16px;
+  }
+
+  .ai-librarian-actions{
+    align-items:stretch;
+    flex-direction:column;
+  }
+
+  .ai-librarian-actions .btn-primary{
+    width:100%;
+    justify-content:center;
+  }
+
+  .ai-result-row{
+    align-items:flex-start;
+  }
+}
