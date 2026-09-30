@@ -2,7 +2,6 @@ import {NextResponse} from 'next/server'
 import {getServerSession} from 'next-auth'
 import {authOptions} from '@/lib/auth'
 import {prisma} from '@/lib/db'
-import {supabaseAdmin,supabaseBucket} from '@/lib/supabase-admin'
 import {z} from 'zod'
 
 const Schema=z.object({
@@ -23,67 +22,8 @@ async function authorized(){
   return !!(await getServerSession(authOptions))
 }
 
-async function uploadFile(file:File,folder:string){
-  const ext=file.name.split('.').pop()?.toLowerCase()||'bin'
-  const path=`${folder}/${crypto.randomUUID()}.${ext}`
-
-  const {error}=await supabaseAdmin.storage
-    .from(supabaseBucket)
-    .upload(path,file,{
-      contentType:file.type,
-      cacheControl:'3600',
-      upsert:false
-    })
-
-  if(error)throw new Error(`Storage upload failed: ${error.message}`)
-
-  const {data}=supabaseAdmin.storage
-    .from(supabaseBucket)
-    .getPublicUrl(path)
-
-  return data.publicUrl
-}
-
 async function values(req:Request){
   const form=await req.formData()
-
-  const cover=form.get('cover')
-  const pdf=form.get('pdf')
-
-  if(
-    cover instanceof File &&
-    (
-      cover.size>5_000_000 ||
-      !['image/jpeg','image/png','image/webp'].includes(cover.type)
-    )
-  ){
-    throw Error('Cover must be JPG, PNG, or WebP under 5 MB.')
-  }
-
-  if(
-    pdf instanceof File &&
-    (
-      pdf.size>25_000_000 ||
-      pdf.type!=='application/pdf'
-    )
-  ){
-    throw Error('PDF must be a valid PDF under 25 MB.')
-  }
-
-  let cover_url=String(
-    form.get('cover_url')||
-    'https://images.unsplash.com/photo-1532012197267-da84d127e765?w=600&h=800&fit=crop'
-  )
-
-  let pdf_url=String(form.get('pdf_url')||'')
-
-  if(cover instanceof File && cover.size>0){
-    cover_url=await uploadFile(cover,'covers')
-  }
-
-  if(pdf instanceof File && pdf.size>0){
-    pdf_url=await uploadFile(pdf,'pdfs')
-  }
 
   return Schema.parse({
     title:form.get('title'),
@@ -91,13 +31,11 @@ async function values(req:Request){
     description:form.get('description')||'',
     category:form.get('category'),
     language:form.get('language')||'English',
-    cover_url,
-    pdf_url,
+    cover_url:form.get('cover_url')||
+      'https://images.unsplash.com/photo-1532012197267-da84d127e765?w=600&h=800&fit=crop',
+    pdf_url:form.get('pdf_url')||'',
     page_count:form.get('page_count')||0,
-    file_size:form.get('file_size')||
-      (pdf instanceof File && pdf.size>0
-        ? `${(pdf.size/1024/1024).toFixed(2)} MB`
-        : 'Unknown'),
+    file_size:form.get('file_size')||'Unknown',
     tags:form.get('tags')||'',
     published:form.get('published')==='true'
   })
@@ -144,11 +82,12 @@ export async function PUT(req:Request){
     const fd=await req.formData()
     const id=String(fd.get('id')||'')
 
-    if(!id)
+    if(!id){
       return NextResponse.json(
         {error:'Book id is required'},
         {status:400}
       )
+    }
 
     const data=await values(
       new Request(req.url,{
