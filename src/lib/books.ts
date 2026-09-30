@@ -23,4 +23,9 @@ export async function getBooks(all=false): Promise<Book[]> {
  } catch {}
  return all ? sample : sample.filter(b=>b.published)
 }
-export async function getBook(id:string,all=false):Promise<Book|undefined>{const rows=await getBooks(all);return rows.find(b=>b.id===id)}
+export async function getBook(id:string,all=false):Promise<Book|undefined>{
+  const row=await prisma.book.findUnique({where:{id}})
+  if(!row)return undefined
+  if(!all && !row.published)return undefined
+  return row as Book
+}
