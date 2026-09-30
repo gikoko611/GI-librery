@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "build": "prisma db push && prisma generate && tsx scripts/seed-admin.ts && next build",
     "start": "next start",
     "lint": "eslint"
   },
@@ -43,6 +43,7 @@
     "postcss": "^8.5.28",
     "tailwindcss": "3.4.1",
     "tailwindcss-animate": "^1.0.7",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   },
   "packageManager": "pnpm@9.1.0",
